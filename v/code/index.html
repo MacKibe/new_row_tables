@@ -16,9 +16,12 @@
         border-collapse: collapse;
         border: 2px solid black;
       }
-      table {
+      table, 
+      form{
         margin: 5% auto;
         width: 70%;
+      }
+      table {
         font-size: 150%;
         text-align: center;
         margin-bottom: 5%;
@@ -32,39 +35,88 @@
     </style>
   </head>
   <body>
-    <table id="form_table">
+    <form id="form_data">
+      <label>No.
+        <input id="input1">
+      </label>
+    <form>
+      <label>Item
+        <input type="text">
+      </label>
+    <form>
+      <label>NPrice
+        <input type="text">
+      </label>
+      <button type="button" id="save_data">Save</button>
+      <button id="edit_data">Edit</button>
+    </form>
+    <!--  -->
+    <table id="form_id_table">
       <thead>
         <td>No.</td>
         <td>Item</td>
         <td>Price</td>
       </thead>
-      <tr>
-        <td>1.</td>
-        <td>BB</td>
-        <td>200Kshs</td>
-      </tr>
     </table>
-    
-    <button type="submit" id="new_row_btn">New Row</button>
+<!--     
+    <button type="button" id="new_row_btn">Save</button> -->
+    <!-- <button id="new_row_btn">clear</button> -->
     <script>
+      // 
+      // Form
+      const form = document.getElementById("form_data");
+      // 
+      // Table
+      const table =document.getElementById("form_id_table");
+      // 
+      // Buttons
+      const save_btn = document.getElementById("save_data");
+      const edit_btn = document.getElementById("edit_data");
+      // 
+      // Inputs
+      const input_one = document.getElementById("input1");
+      // 
+      // Value of the input.
+      const input_one_value = document.getElementsByTagName("input").value;
+      
+      // 
+      // Add event listener
+      save_btn.onclick = () => {
+        // 
+        // Create a new row template
+        const new_row = `
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>  
+        `;
+
+        // 
+        // Append/insert the new row to the table.
+        table.innerHTML += new_row;
+      }
+
+      
+
       //
       // Assign the table and the button
-      const table = document.getElementById("form_table");
-      const new_row_btn = document.getElementById("new_row_btn");
-      
-      new_row_btn.onclick = () => {
-        //
-      // Add new row
-    //   Create a new row template
-    const new_row = `
-        <tr>
-            <td><input type="text"></input></td>
-            <td><input type="text"></input></td>
-            <td><input type="text"></input></td>
-            </tr>
-    `;
-    table.innerHTML += new_row;
-      }
+      // const muli = document.getElementById("form_id_table");
+      // const new_row_btn = document.getElementById("new_row_btn");
+
+      // new_row_btn.onclick = () => {
+      //   //
+      //   // Add new row
+      //   //   Create a new row template
+      //   const new_row = `
+      //       <tr>
+      //           <td><input type="text"></input></td>
+      //           <td><input type="text"></input></td>
+      //           <td><input type="text"></input></td>
+      //           </tr>
+      //   `;
+      //   muli.innerHTML += new_row;
+      // }
     </script>
   </body>
 </html>
